@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "core-js": "^3.2.1",
+    "react-feather": "^2.0.3",
     "regenerator-runtime": "^0.13.3"
   }
 }
