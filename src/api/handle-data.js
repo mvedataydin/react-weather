@@ -1,7 +1,6 @@
 export const dataHandler = weatherData => {
   const day = new Date();
   const dayCode = day.getDay();
-
   const weekDays = [
     'Sunday',
     'Monday',
@@ -19,7 +18,9 @@ export const dataHandler = weatherData => {
   // calculate the array distance between current data and next day data
   // weather data from api contains data of 3h periods
   let difference = (24 - currentTime) / 3 + 4;
-
+  if (difference === 12) {
+    difference = 11;
+  }
   const data = [
     {
       day: 1,
