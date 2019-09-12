@@ -5,10 +5,6 @@ import AppContainer from './components/app-container.js';
 
 export default class App extends React.Component {
   render() {
-    return (
-      <div>
-        <AppContainer />
-      </div>
-    );
+    return <AppContainer />;
   }
 }

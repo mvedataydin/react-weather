@@ -33,16 +33,16 @@ export default class Input extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
+      <div className="form-container">
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.city}
             name="city"
             onChange={this.handleChange}
           />
-        </div>
-      </form>
+        </form>
+      </div>
     );
   }
 }

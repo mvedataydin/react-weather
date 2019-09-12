@@ -13,7 +13,7 @@ export default class AppContainer extends React.Component {
     };
   }
   componentDidMount = async () => {
-    let data = await fetchWeatherData('seattle');
+    let data = await fetchWeatherData('adana');
     let dataFormatted = dataHandler(data);
     this.setState({ weatherData: dataFormatted });
   };
@@ -26,7 +26,7 @@ export default class AppContainer extends React.Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
+      <div className="container">
         <Weather data={this.state.weatherData} />
         <Info onSubmit={this.getData} />
       </div>

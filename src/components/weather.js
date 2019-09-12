@@ -1,29 +1,57 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import { MapPin, Cloud, CloudSnow, CloudRain, Sun } from 'react-feather';
 
 export default class Weather extends React.Component {
   render() {
+    const status = this.props.data[2][0].status.toLowerCase();
+    let gradientClassName = handleGradientClass(status);
+    console.log(gradientClassName);
     return (
       <div className="weather-side">
-        <div className="weather-gradient"></div>
+        <div className={gradientClassName}></div>
         <div className="date-container">
-          <h2 className="date-dayname">{this.props.data[2][0].weekDay}</h2>
+          <span className="date-dayname">{this.props.data[2][0].weekDay}</span>
+          <br />
           <span className="date-day">{this.props.data[2][0].date}</span>
-          <i className="location-icon" data-feather="map-pin"></i>
+          <br />
           <span className="location">
-            {this.props.data[0]}, {this.props.data[1]}
+            {this.props.data[0]}, {this.props.data[1]} <MapPin size={14} />
           </span>
         </div>
         <div className="weather-container">
-          <i className="weather-icon" data-feather="sun"></i>
-          <h1 className="weather-temp">{this.props.data[2][0].currentTemp}°C</h1>
-          <h3 className="weather-desc">{this.props.data[2][0].status}</h3>
+          {/* RENDER WEATHER ICON ACCORDING TO STATUS*/}
+          {status == 'cloudy' ? (
+            <Cloud fill="white" size={80} className="icon-weather" />
+          ) : status == 'sunny' ? (
+            <Sun fill="white" size={80} className="icon-weather" />
+          ) : status == 'rainy' ? (
+            <CloudRain fill="white" size={80} className="icon-weather" />
+          ) : (
+            <CloudSnow fill="white" size={80} className="icon-weather" />
+          )}
+          <br />
+          <span className="weather-temp">{this.props.data[2][0].currentTemp}°C</span>
+          <br />
+          <span className="weather-status">{this.props.data[2][0].status}</span>
         </div>
       </div>
     );
   }
 }
+
+const handleGradientClass = status => {
+  const day = new Date();
+  let hour = day.getHours();
+  if (hour >= 18 || hour <= 6) {
+    return 'gradient-night';
+  }
+  if (status == 'sunny') {
+    return 'gradient-sunny';
+  }
+  return 'gradient-dark';
+};
 
 Weather.propTypes = {
   data: PropTypes.array.isRequired

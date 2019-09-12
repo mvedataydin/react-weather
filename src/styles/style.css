@@ -128,3 +128,193 @@ table {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+:root {
+  --gradientN: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+  --gradientS: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+  --gradientD: linear-gradient(135deg, #443bc4 0%, #428bdd 100%);
+}
+/* STYLING */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(33, 35, 54);
+}
+#root {
+  background-image: linear-gradient(135deg, #243949, 0%, #517fa4, 100%);
+}
+input {
+  margin: auto;
+  height: 30px;
+}
+.form-container {
+  position: absolute;
+  margin-top: 0px;
+}
+form {
+  display: block;
+  margin: 10px 0;
+  width: 400px;
+  height: 30px;
+  text-align: center;
+}
+h1 {
+  font-weight: 900;
+}
+h3 {
+  font-weight: 600;
+}
+
+.container {
+  color: white;
+  width: 400px;
+  height: 550px;
+  margin: 25px auto;
+  -webkit-box-shadow: 0px 0px 41px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 41px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 41px -6px rgba(0, 0, 0, 0.75);
+}
+/* WEATHER SIDE */
+.weather-side {
+  padding: 30px;
+  position: relative;
+  width: 400px;
+  height: 275px;
+  background-image: url('../img/img.jpg');
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.gradient-night {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--gradientN);
+  opacity: 0.85;
+}
+.gradient-sunny {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--gradientS);
+  opacity: 0.8;
+}
+.gradient-dark {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: var(--gradientD);
+  opacity: 0.8;
+}
+.date-container {
+  position: absolute;
+  right: 30px;
+  text-align: right;
+  color: white;
+}
+.weather-container {
+  position: absolute;
+  bottom: 30px;
+}
+
+.date-dayname {
+  line-height: 20px;
+  display: block;
+  font-weight: 700;
+  font-size: 28px;
+}
+.date-day {
+  display: block;
+}
+.location {
+  font-size: 15px;
+}
+.icon-weather {
+  display: block;
+}
+.weather-temp {
+  font-size: 78px;
+  font-weight: 700;
+}
+.weather-status {
+  font-size: 28px;
+}
+/* INFO SIDE */
+li {
+  float: left;
+  margin: 0px;
+  width: 80px;
+  height: 130px;
+  color: white;
+  background-color: #232d3d;
+}
+.info-side {
+  width: 400px;
+  height: 315px;
+  background-color: #1d2229;
+}
+.info-row {
+  margin-bottom: 6px;
+}
+.info-rain {
+  margin: 10px 0px;
+  font-weight: bold;
+  text-align: left;
+}
+.info-rain-value {
+  float: right;
+}
+.info-humidity {
+  font-weight: bold;
+  text-align: left;
+}
+.info-humidity-value {
+  float: right;
+}
+.info-wind {
+  font-weight: bold;
+  text-align: left;
+}
+.info-wind-value {
+  float: right;
+}
+.today-info {
+  padding-top: 30px;
+  margin: 0px 70px;
+  color: white;
+}
+.week-container {
+  margin: 40px 40px 20px 40px;
+  height: 110px;
+}
+
+.week-list > li .day-name {
+  display: block;
+  margin: 10px 0 0 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.week-list > li .day-icon {
+  display: block;
+  height: 30px;
+  width: auto;
+  margin: 10px auto;
+}
+
+.week-list > li .noon-temp {
+  display: block;
+  text-align: center;
+  margin: 10px 0 0 0;
+  font-weight: 700;
+}
+.week-list > li .night-temp {
+  display: block;
+  text-align: center;
+  margin: 10px 0 0 0;
+  font-weight: 700;
+}
