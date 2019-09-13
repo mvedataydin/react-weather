@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { MapPin, Cloud, CloudSnow, CloudRain, Sun } from 'react-feather';
 
@@ -7,7 +6,6 @@ export default class Weather extends React.Component {
   render() {
     const status = this.props.data[2][0].status.toLowerCase();
     let gradientClassName = handleGradientClass(status);
-    console.log(gradientClassName);
     return (
       <div className="weather-side">
         <div className={gradientClassName}></div>
@@ -27,9 +25,9 @@ export default class Weather extends React.Component {
           ) : status == 'sunny' ? (
             <Sun fill="white" size={80} className="icon-weather" />
           ) : status == 'rainy' ? (
-            <CloudRain fill="white" size={80} className="icon-weather" />
+            <CloudRain size={80} className="icon-weather" />
           ) : (
-            <CloudSnow fill="white" size={80} className="icon-weather" />
+            <CloudSnow size={80} className="icon-weather" />
           )}
           <br />
           <span className="weather-temp">{this.props.data[2][0].currentTemp}°C</span>
@@ -44,7 +42,7 @@ export default class Weather extends React.Component {
 const handleGradientClass = status => {
   const day = new Date();
   let hour = day.getHours();
-  if (hour >= 18 || hour <= 6) {
+  if (hour >= 19 || hour <= 5) {
     return 'gradient-night';
   }
   if (status == 'sunny') {

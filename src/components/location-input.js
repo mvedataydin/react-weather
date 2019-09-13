@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { fetchWeatherData } from '../api/fetch-weather-data';
 import { dataHandler } from '../api/handle-data.js';
@@ -18,6 +17,7 @@ export default class Input extends React.Component {
       [event.target.name]: event.target.value
     });
   };
+
   handleSubmit = async event => {
     let cityName = this.state.city;
     event.preventDefault();
@@ -36,10 +36,15 @@ export default class Input extends React.Component {
       <div className="form-container">
         <form onSubmit={this.handleSubmit}>
           <input
+            className="location-input"
+            autoComplete="off"
             type="text"
             value={this.state.city}
             name="city"
             onChange={this.handleChange}
+            placeholder="Change Location"
+            onFocus={e => (e.target.placeholder = '')}
+            onBlur={e => (e.target.placeholder = 'Change Location')}
           />
         </form>
       </div>

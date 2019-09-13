@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Input from './location-input';
 import { fetchWeatherData } from '../api/fetch-weather-data';
 import { dataHandler } from '../api/handle-data.js';
@@ -15,7 +14,7 @@ export default class Info extends React.Component {
     this.getData = this.getData.bind(this);
   }
   componentDidMount = async () => {
-    let data = await fetchWeatherData('adana');
+    let data = await fetchWeatherData('tokyo');
     let dataFormatted = dataHandler(data);
     this.setState({ weatherData: dataFormatted });
   };
