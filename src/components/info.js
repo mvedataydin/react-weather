@@ -14,7 +14,7 @@ export default class Info extends React.Component {
     this.getData = this.getData.bind(this);
   }
   componentDidMount = async () => {
-    let data = await fetchWeatherData('tokyo');
+    let data = await fetchWeatherData('seattle');
     let dataFormatted = dataHandler(data);
     this.setState({ weatherData: dataFormatted });
   };

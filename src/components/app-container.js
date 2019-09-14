@@ -12,7 +12,7 @@ export default class AppContainer extends React.Component {
     };
   }
   componentDidMount = async () => {
-    let data = await fetchWeatherData('tokyo');
+    let data = await fetchWeatherData('seattle');
     let dataFormatted = dataHandler(data);
     this.setState({ weatherData: dataFormatted });
   };
